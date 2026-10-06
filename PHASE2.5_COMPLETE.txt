@@ -1,0 +1,68 @@
+IMMIQ PHASE 2.5 — INVOICES & PAYMENT HISTORY
+================================================
+
+Base:
+- IMMIQ_PHASE2_4_COMPLETE
+- Existing Phase 2.1, 2.2, 2.3 and 2.4 functionality is preserved.
+
+Phase 2.5 implementation:
+1. PaymentTransaction MongoDB model
+2. Payment order transaction tracking
+3. Successful Razorpay verification transaction tracking
+4. Automatic invoice creation after verified payment
+5. Legacy paid enrollments are synchronized into invoices when learner opens billing
+6. Learner invoice list
+7. Learner payment transaction history
+8. Learner invoice detail page
+9. Print / Save as PDF invoice
+10. Admin invoices & payment activity dashboard
+11. Learner Portal financial shortcuts
+12. Existing payment flow preserved
+
+NEW SERVER FILES:
+- server/src/models/PaymentTransaction.ts
+
+UPDATED SERVER FILES:
+- server/src/models/Invoice.ts
+- server/src/controllers/paymentController.ts
+- server/src/controllers/invoiceController.ts
+- server/src/routes/invoiceRoutes.ts
+
+NEW CLIENT FILES:
+- client/src/pages/user/LearnerInvoiceDetail.tsx
+- client/src/pages/admin/AdminInvoices.tsx
+
+UPDATED CLIENT FILES:
+- client/src/pages/user/LearnerInvoices.tsx
+- client/src/pages/user/LearnerPortal.tsx
+- client/src/pages/admin/AdminDashboard.tsx
+- client/src/App.tsx
+
+LEARNER ROUTES:
+- /portal/invoices
+- /portal/invoices/:invoiceId
+- /portal/certificates
+
+ADMIN ROUTES:
+- /admin/invoices
+- /admin/certificates
+
+API:
+GET  /api/v1/invoices/my
+GET  /api/v1/invoices/my/:invoiceId
+GET  /api/v1/admin/invoices
+
+PAYMENT FLOW:
+POST /api/v1/payments/create-order
+POST /api/v1/payments/verify
+
+Payment order creation now creates a PaymentTransaction with status "created".
+Successful Razorpay verification changes it to "paid" and creates an Invoice.
+Signature verification failure marks the tracked transaction as "failed".
+
+NOTES:
+- Razorpay keys are still required for live payment processing.
+- VITE_API_URL is used by the frontend when configured.
+- No .env or node_modules are included in this source package.
+- Run npm install separately in server and client after extraction.
+- TypeScript build could not be fully executed in the packaging environment because dependency installation timed out; source changes were statically checked for route/import consistency.

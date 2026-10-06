@@ -1,0 +1,115 @@
+IMMIQ PHASE 2 SOURCE BUNDLE
+===========================
+
+This bundle preserves the uploaded existing client/src and server/src files and adds Phase 2 source files.
+No existing public/admin/user page was replaced for redesign.
+
+CLIENT NEW FILES
+----------------
+client/src/pages/user/LearnerCourse.tsx
+client/src/pages/user/LearnerCertificates.tsx
+client/src/pages/user/LearnerInvoices.tsx
+client/src/pages/user/LearnerProfile.tsx
+client/src/pages/user/LearnerEvents.tsx
+client/src/pages/user/LearnerResources.tsx
+client/src/pages/user/InterestFinder.tsx
+client/src/pages/user/CorporateLogin.tsx
+client/src/pages/user/CorporatePortal.tsx
+client/src/pages/user/ProtectedCorporateRoute.tsx
+client/src/pages/user/VerifyCertificate.tsx
+client/src/pages/admin/CourseContent.tsx
+
+CLIENT CHANGED
+--------------
+client/src/App.tsx
+
+SERVER NEW MODELS
+-----------------
+server/src/models/CourseModule.ts
+server/src/models/LessonProgress.ts
+server/src/models/Certificate.ts
+server/src/models/Invoice.ts
+server/src/models/Event.ts
+server/src/models/EventRegistration.ts
+server/src/models/Resource.ts
+server/src/models/CorporateClient.ts
+server/src/models/CorporateLearner.ts
+server/src/models/NewsletterSubscriber.ts
+server/src/models/InterestResult.ts
+
+SERVER NEW CONTROLLERS
+---------------------
+server/src/controllers/learningController.ts
+server/src/controllers/courseContentController.ts
+server/src/controllers/certificateController.ts
+server/src/controllers/invoiceController.ts
+server/src/controllers/eventController.ts
+server/src/controllers/resourceController.ts
+server/src/controllers/newsletterController.ts
+server/src/controllers/interestController.ts
+server/src/controllers/corporateController.ts
+
+SERVER NEW ROUTES
+-----------------
+server/src/routes/learningRoutes.ts
+server/src/routes/courseContentRoutes.ts
+server/src/routes/certificateRoutes.ts
+server/src/routes/invoiceRoutes.ts
+server/src/routes/eventRoutes.ts
+server/src/routes/resourceRoutes.ts
+server/src/routes/newsletterRoutes.ts
+server/src/routes/interestRoutes.ts
+server/src/routes/corporateRoutes.ts
+
+SERVER CHANGED
+--------------
+server/src/app.ts
+server/src/seed.ts
+
+SERVER NEW SEED
+---------------
+server/src/seed/phase2.ts
+
+MAIN PHASE 2 ROUTES
+-------------------
+/login
+/register
+/portal
+/portal/learn/:enrollmentId
+/portal/certificates
+/portal/invoices
+/portal/profile
+/portal/events
+/portal/resources
+/interest-finder
+/verify/:certificateId
+/corporate/login
+/corporate
+/admin/courses
+/admin/course-content/:courseId
+
+MAIN PHASE 2 API GROUPS
+-----------------------
+/api/v1/learning/*
+/api/v1/admin/course-content/*
+/api/v1/certificates/*
+/api/v1/invoices/*
+/api/v1/events/*
+/api/v1/resources
+/api/v1/newsletter/subscribe
+/api/v1/interest-finder
+/api/v1/corporate/dashboard
+
+NOTE
+----
+The existing package.json / node_modules are intentionally not included because the request was for the src code bundle.
+Run the existing project's normal npm install/build commands after copying these src folders into the project.
+
+PHASE 2.6 — LEARNER PROFILE
+- server/src/models/User.ts
+- server/src/controllers/learnerProfileController.ts
+- server/src/routes/learnerProfileRoutes.ts
+- server/src/app.ts
+- client/src/pages/user/LearnerProfile.tsx
+- client/src/pages/user/LearnerPortal.tsx
+- client/src/App.tsx

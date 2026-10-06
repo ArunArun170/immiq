@@ -1,0 +1,38 @@
+IMMIQ PHASE 2.7 - EVENTS + LEARNING RESOURCES
+
+Base:
+- IMMIQ_PHASE2_6_COMPLETE.zip
+
+Implemented:
+- Learner events dashboard
+- Upcoming events
+- My registrations
+- Event registration
+- Event registration cancellation
+- Join event link for registered learners
+- Event date/time/mode/venue information
+- Learner-only resource endpoint
+- Course-aware resources based on paid/active/completed enrollments
+- General resources available to all learners
+- Resource search
+- Resource type filter
+- Resource cards with PDF/video/link/notes/assignment/other icons
+- Portal shortcuts for Events and Resources
+
+API:
+GET    /api/v1/events
+GET    /api/v1/events/my
+POST   /api/v1/events/:eventId/register
+DELETE /api/v1/events/:eventId/register
+GET    /api/v1/resources
+GET    /api/v1/resources/my
+
+Frontend:
+/portal/events
+/portal/resources
+
+Existing Phase 2.1-2.6 functionality is preserved.
+No separate CSS was added for Phase 2.7; new learner pages use Tailwind utility classes.
+
+Note:
+Full dependency installation/build verification was not available in the packaging environment. Source-level route/import consistency was checked.

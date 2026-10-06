@@ -1,0 +1,13 @@
+import { Router } from "express";
+import { getCourseContent,createCourseModule,updateCourseModule,deleteCourseModule,createLesson,updateLesson,deleteLesson } from "../controllers/courseContentController";
+import { authenticate } from "../middleware/auth";
+import { requirePermission } from "../middleware/rbac";
+const router=Router();
+router.get("/admin/course-content/:courseId",authenticate,requirePermission("course:read"),getCourseContent);
+router.post("/admin/course-content/:courseId/modules",authenticate,requirePermission("course:update"),createCourseModule);
+router.put("/admin/course-content/modules/:moduleId",authenticate,requirePermission("course:update"),updateCourseModule);
+router.delete("/admin/course-content/modules/:moduleId",authenticate,requirePermission("course:update"),deleteCourseModule);
+router.post("/admin/course-content/:moduleId/lessons",authenticate,requirePermission("course:update"),createLesson);
+router.put("/admin/course-content/modules/:moduleId/lessons/:lessonId",authenticate,requirePermission("course:update"),updateLesson);
+router.delete("/admin/course-content/modules/:moduleId/lessons/:lessonId",authenticate,requirePermission("course:update"),deleteLesson);
+export default router;

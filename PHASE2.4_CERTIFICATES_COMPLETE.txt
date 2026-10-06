@@ -1,0 +1,24 @@
+IMMIQ PHASE 2.4 — CERTIFICATES COMPLETE
+
+Base: IMMIQ Phase 2.3 Complete
+
+Implemented:
+- Certificate MongoDB model with unique certificate number and enrollment ownership.
+- Learner certificate generation only after 100% active lesson completion.
+- Idempotent generation: one certificate per enrollment.
+- Learner certificate list at /portal/certificates.
+- Individual certificate view at /portal/certificates/:certificateNumber.
+- Browser Print / Save PDF action.
+- Public verification at /verify/:certificateId.
+- Admin certificate management at /admin/certificates.
+- Admin revoke action; revoked certificates fail public verification.
+- Certificate permissions: certificate:read, certificate:update.
+- Learner course workspace shows certificate generation CTA after 100% progress.
+
+Certificate flow:
+Learner -> Course -> Complete all lessons -> 100% -> Generate Certificate -> Certificate Number -> View/Print -> Public Verify
+
+Important:
+- No real .env secrets are included.
+- Run npm install in server and client after extraction.
+- Configure server/.env and client/.env.

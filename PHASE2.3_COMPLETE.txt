@@ -1,0 +1,57 @@
+IMMIQ - PHASE 2.3 COMPLETE
+===========================
+
+Included
+--------
+- Existing IMMIQ client source preserved
+- Existing IMMIQ server source preserved
+- Project package.json / TypeScript / Vite config files
+- Phase 2.1 Learner Portal + learning workspace
+- Phase 2.2 CourseModule + LessonProgress + learning APIs
+- Phase 2.3 Admin Course Content CMS
+- Course -> Manage Content navigation
+- Module create / edit / delete
+- Lesson create / edit / delete
+- Lesson content, video URL, duration, order, free preview, active status
+- Learner course-content API integration
+- Phase 2 demo seed modules and lessons
+- Environment example files
+
+Phase 2.3 route
+---------------
+Admin: /admin/course-content/:courseId
+
+API
+---
+GET    /api/v1/admin/course-content/:courseId
+POST   /api/v1/admin/course-content/:courseId/modules
+PUT    /api/v1/admin/course-content/modules/:moduleId
+DELETE /api/v1/admin/course-content/modules/:moduleId
+POST   /api/v1/admin/course-content/:moduleId/lessons
+PUT    /api/v1/admin/course-content/modules/:moduleId/lessons/:lessonId
+DELETE /api/v1/admin/course-content/modules/:moduleId/lessons/:lessonId
+
+Setup
+-----
+1. Extract this ZIP.
+2. Open PowerShell in the extracted project root.
+3. Server:
+   cd server
+   npm install
+   copy .env.example .env
+   Edit .env and set MONGODB_URI and JWT_ACCESS_SECRET.
+   npm run dev
+4. Optional seed data (new terminal, server folder):
+   npm run seed
+5. Client (new terminal, project root):
+   cd client
+   npm install
+   copy .env.example .env
+   npm run dev
+6. Open http://localhost:5173
+
+Important
+---------
+- Do NOT run npm audit fix before the project is tested; dependency upgrades can change behavior.
+- node_modules and dist are intentionally not included.
+- .env files containing real secrets are intentionally not included.

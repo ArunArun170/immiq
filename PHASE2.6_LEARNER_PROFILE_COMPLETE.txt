@@ -1,0 +1,37 @@
+IMMIQ — PHASE 2.6 COMPLETE
+===========================
+
+Base:
+- IMMIQ_PHASE2_5_COMPLETE.zip
+
+Phase 2.6: Learner Profile
+
+Implemented:
+- Learner profile API
+- Editable learner name, phone, avatar URL, bio
+- Location: city, state, country
+- Professional links: LinkedIn, website/portfolio
+- Learning goal
+- Learner account summary
+- Secure learner password change using bcrypt
+- Password confirmation validation
+- Sign-out after password change
+- Learner profile page at /portal/profile
+- Tailwind-only responsive premium UI
+- Profile shortcut from learner portal
+- Existing course, certificate, invoice, event and resource flows preserved
+
+Backend endpoints:
+GET  /api/v1/learner/profile
+PUT  /api/v1/learner/profile
+POST /api/v1/learner/profile/password
+
+Important:
+- Existing User collection is extended with optional profile fields; existing users remain valid.
+- Email remains read-only in the learner profile UI.
+- No .env or node_modules included.
+- Run npm install in server and client after extraction.
+
+Verification note:
+- Source-level route/model/controller wiring was checked.
+- Full dependency-based TypeScript build could not be completed in the packaging environment because npm install timed out.

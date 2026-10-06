@@ -1,0 +1,39 @@
+IMMIQ PHASE 2.8 - CLIENT / CORPORATE LEARNING AREA
+
+Implemented:
+- Corporate client dashboard
+- KPI summary: learners, average progress, active learners, completed programs
+- Course/program performance breakdown
+- Assigned learner progress table
+- Learner detail drawer
+- CSV learning report export
+- Corporate login compatibility
+- Admin corporate account management
+- Admin corporate account creation
+- Admin learner enrollment assignment
+- Admin learner assignment removal (soft deactivate)
+- Demo corporate seed account
+
+Demo corporate login:
+Email: corporate@demo.immiq.in
+Password: Corporate@12345
+URL: /corporate/login
+
+Admin corporate management:
+/admin/corporate
+
+Corporate API:
+GET /api/v1/corporate/dashboard
+GET /api/v1/corporate/learners/:assignmentId
+GET /api/v1/corporate/report
+
+Admin API:
+GET /api/v1/admin/corporate
+POST /api/v1/admin/corporate
+GET /api/v1/admin/corporate/enrollments
+POST /api/v1/admin/corporate/:corporateClientId/learners
+DELETE /api/v1/admin/corporate/:corporateClientId/learners/:assignmentId
+
+Important:
+Run `npm run seed` after extracting the ZIP if you want the demo corporate account.
+Phase 2.8 completes the planned Phase 2 learner/corporate roadmap.
